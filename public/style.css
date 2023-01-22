@@ -1,0 +1,79 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+span{
+  position: absolute;
+  color: white;
+}
+#game{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(30deg,lightblue,darkblue,black);
+}
+.ctrlBtn{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+.jump{
+  bottom: 10px;
+  left: 10px;
+}
+
+.left{
+  right: 10px;
+  bottom: 10px;
+}
+.right{
+  right: 70px;
+  bottom: 10px;
+}
+#rotate{
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#phone{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -30px;
+  border: 3px solid white;
+  height: 100px;
+  width: 60px;
+  border-bottom: 10px solid white;
+  border-radius: 2px;
+  color: white;
+  padding: 10px;
+  animation: rot 3s infinite;
+}
+
+@keyframes rot{
+  0%{
+    transform: rotate(0deg);
+  }
+  25%{
+    transform: rotate(90deg);
+  }
+  75%{
+    transform: rotate(90deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+@media (orientation: landscape) {
+  #rotate {
+    display: none;
+  }
+}
