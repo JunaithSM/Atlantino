@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodejs": "^0.0.0",
+    "nodemon": "^2.0.20",
+    "socket.io": "^4.5.4"
+  },
+  "name": "atlantino",
+  "version": "1.0.0",
+  "description": "This is a platform game",
+  "main": "app.js",
+  "scripts": {
+    "start":"node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "game","platform"
+  ],
+  "author": ["S.Moahemmed Junaith","S.M.Methulash","B.Rinu Jovan"],
+  "license": "ISC",
+  "devDependencies": {}
+}
