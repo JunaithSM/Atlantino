@@ -11,21 +11,25 @@ window.addEventListener("resize",()=>{
   GAME_SCREEN.width = window.innerWidth;
 GAME_SCREEN.height = window.innerHeight;
 })
+let playerImg = document.getElementById('player');
 class Player {
   constructor () {
-    this.y = GAME_SCREEN.height-100-70;
+    
     this.x = 10;
     this.width = 30;
     this.height = 70;
-    this.mass = 10;
+    this.y = GAME_SCREEN.height-100-this.height;
+    this.mass = 60;
     this.ground = this.y;
     this.gravity = 0.0098*this.mass;
-    this.speed = 2;
+    this.speed = 1;
     this.speedY= 0;
     this.moveX = 0;
     this.JumpX = 0;
     this.acc = 0;
     this.gravityX=false;
+    this.sx = 0;
+    this.t = 0;
   }
   movement() {
     if (this.x < 0 || this.x > GAME_SCREEN.width-this.width) {
@@ -33,11 +37,15 @@ class Player {
       this.moveX = 0;
       return;
     }
+    
+   if(this.sx >= 1600 || this.sx <= 0){
+     this.sx = 0
+   }
     this.x += this.speed*this.moveX;
   }
   jump() {
    if (this.JumpX && this.y == this.ground) {
-      this.speedY= -2.7;
+      this.speedY= -13;
       this.acc=this.gravity;
       this.gravityX = !this.JumpX;
    }
@@ -55,10 +63,17 @@ class Player {
     log(this.speedY+" "+this.acc)
     this.y += this.speedY;
   }
+  animation(){
+    this.t++
+   if(this.t%10===0){
+    this.sx += 230*this.moveX
+   }
+  }
   draw() {
     ctx.beginPath();
     ctx.fillStyle = "red";
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+   // ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(playerImg,this.sx,290,230,300,this.x,this.y,(230/300)*this.width,this.height)
     ctx.fill();
     ctx.closePath();
   }
@@ -69,22 +84,24 @@ function createPlayer() {
   Gamer.movement();
   Gamer.Gravity();
   Gamer.jump();
+  Gamer.animation();
 }
-const Jump = document.getElementsByClassName("ctrlBtn");
-Jump[0].addEventListener("touchstart", ()=> {
+
+const ControlBtn = document.getElementsByClassName("ctrlBtn");
+ControlBtn[0].addEventListener("touchstart", ()=> {
   Gamer.moveX=-1
 });
-Jump[1].addEventListener("touchstart", ()=> {
+ControlBtn[1].addEventListener("touchstart", ()=> {
   Gamer.moveX = 1;
 });
-Jump[2].addEventListener("touchstart", ()=> {
+ControlBtn[2].addEventListener("touchstart", ()=> {
   Gamer.JumpX=1;
 });
-Jump[0 || 1].addEventListener("touchend", ()=> {
+for(let i = 0;i<2;i++){
+ControlBtn[i].addEventListener("touchend", ()=> {
   Gamer.moveX = 0;
 })
-
-
+}
 function animation () {
   ctx.clearRect(0, 0, GAME_SCREEN.width, GAME_SCREEN.height);
   createPlayer();

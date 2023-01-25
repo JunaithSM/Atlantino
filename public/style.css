@@ -2,6 +2,7 @@
   margin:0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 span{
   position: absolute;
@@ -13,7 +14,7 @@ span{
   height: 100%;
   top: 0;
   left: 0;
-  background-image: linear-gradient(30deg,lightblue,darkblue,black);
+  background-image: linear-gradient(30deg,yellow,orange,red,darkred);
 }
 .ctrlBtn{
   position: absolute;
@@ -40,6 +41,7 @@ span{
   left: 0;
   width: 100%;
   height: 100%;
+  display: none;
 }
 
 #phone{
@@ -76,4 +78,7 @@ span{
   #rotate {
     display: none;
   }
+}
+img{
+  display: none;
 }
