@@ -16,6 +16,7 @@ span{
   left: 0;
   background-image: linear-gradient(30deg,yellow,orange,red,darkred);
 }
+/*control button*/
 .ctrlBtn{
   position: absolute;
   width: 50px;
@@ -34,6 +35,8 @@ span{
   right: 70px;
   bottom: 10px;
 }
+/*force to rotate phone*/
+
 #rotate{
   background-color: black;
   position: absolute;
@@ -56,6 +59,7 @@ span{
   border-bottom: 10px solid white;
   border-radius: 2px;
   color: white;
+  font-size: 10px;
   padding: 10px;
   animation: rot 3s infinite;
 }
@@ -79,6 +83,8 @@ span{
     display: none;
   }
 }
+/*imgs and audio for games css*/
+
 .imgs{
   display: none;
 }
@@ -88,5 +94,32 @@ span{
 
 /*Loading body*/
 #loadbody{
-  display: none;
+  position: absolute;
+  background-color: #111;
+  height:100%;
+  width: 100%;
+  top:0;
+  left: 0;
+  color: white;
+}
+#loadbody div{
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+}
+#prog{
+  width: 200px;
+  height: 10px;
+  background-color: white;
+  bottom: 170px;
+  animation: loading 1s;
+}
+#ltxt{
+  width: 200px;
+  text-align: center;
+  bottom: 200px;
+}
+@keyframes loading{
+  from{width: 0;}
+  to{width: 50;}
 }

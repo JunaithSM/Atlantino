@@ -11,22 +11,28 @@
   <div id="gamebody">
     <canvas id="game"></canvas>
   </div>
+  <!--control button-->
    <button class="ctrlBtn right" >←</button>
   <button class="ctrlBtn left" >→</button>
   <button class="ctrlBtn jump" >↑</button>
+  <!--Rotation of phone-->
   <span id="ou"></span>
     <div id="rotate">
     <div id="phone">
-      Please rotate your phone
+      Please rotate your phone.
     </div>
   </div>
+  <!--images-->
   <img src="players.png" class="imgs" alt="players.png" id="player">
-  
+   <!--audios-->
   <audio src="Background.mp3" class="aud" ></audio>
+   <!--load body-->
   <div id="loadbody">
-    <div>Loading...</div>
-    <div></div>
+    <div id="ltxt">Loading...</div>
+    <div id="prog"></div>
   </div>
+   <!--scripts-->
+  <script src="/socket.io/socket.io.js"></script>
   <script src="main.js"></script>
 </body>
 
