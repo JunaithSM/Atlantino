@@ -85,7 +85,7 @@ window.addEventListener("load", ()=> {
     Gravity () {
       if (this.y < this.ground && this.gravityX) {
         this.acc = this.gravity
-      } else if (this.y > this.ground&&!this.JumpX) {
+      } else if (this.y > this.ground) {
         this.y = this.ground;
         this.acc = 0;
         this.speedY = 0;
@@ -178,8 +178,10 @@ window.addEventListener("load", ()=> {
       if (collusion(Gamer, PATHS)) {
         break;
       }else if(i == ary.path.length-1){
-        Gamer.ground = GAME_SCREEN.height-45
+        Gamer.ground = GAME_SCREEN.height-45;
+        
       }
+     // log(Gamer.y+" "+i);
     }
     ////////
   }
