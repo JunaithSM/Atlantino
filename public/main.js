@@ -8,11 +8,15 @@ window.addEventListener("load", ()=> {
     BODY: document.getElementById('loadbody')
   }
   LOADING.PROGRESS.style.width = "200px";
-  LOADING.TEXT.innerText = "Loaded"
-  setTimeout(()=> {
+  LOADING.TEXT.innerText = "Tap continue";
+    //Audio manangement below
+  const AUDIO = document.getElementsByClassName("aud");
+  window.addEventListener("click",()=>{
     LOADING.BODY.style.display = "none";
-  }, 1000)
-
+    AUDIO[0].play();
+    AUDIO[0].loop = true;
+  })
+  // 0 means background music
   //GameScreen
   const GAME_SCREEN = document.getElementById("game");
   const ctx = GAME_SCREEN.getContext("2d");
@@ -22,11 +26,8 @@ window.addEventListener("load", ()=> {
   function log(t) {
     tm.innerHTML = t;
   }
-  //Audio manangement below
-  const AUDIO = document.getElementsByClassName("aud");
-  // 0 means background music
-  AUDIO[0].play();
-  AUDIO[0].loop = true;
+
+  
   //reize control
   window.addEventListener("resize", ()=> {
     location.reload();
