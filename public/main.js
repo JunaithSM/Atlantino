@@ -19,9 +19,13 @@ window.addEventListener("load", ()=> {
   // 0 means background music
   //GameScreen
   const GAME_SCREEN = document.getElementById("game");
+  const GAME_BODY = document.getElementById("gamebody");
   const ctx = GAME_SCREEN.getContext("2d");
-  GAME_SCREEN.width = window.innerWidth;
-  GAME_SCREEN.height = window.innerHeight;
+  GAME_SCREEN.width = 10000;
+  GAME_SCREEN.style.width= GAME_SCREEN.width+"px"
+  GAME_SCREEN.height = 600;
+  GAME_SCREEN.style.height= GAME_SCREEN.height+"px"
+  
   const tm = document.getElementById("ou");
   function log(t) {
     tm.innerHTML = t;
@@ -29,11 +33,11 @@ window.addEventListener("load", ()=> {
 
   
   //reize control
-  window.addEventListener("resize", ()=> {
+ /* window.addEventListener("resize", ()=> {
     location.reload();
-    GAME_SCREEN.width = window.innerWidth;
+  //  GAME_SCREEN.width = 5000;
     GAME_SCREEN.height = window.innerHeight;
-  })
+  })*/
   //Images below here
   const IMAGE = document.getElementsByClassName("imgs");
   const img = {
@@ -49,7 +53,6 @@ window.addEventListener("load", ()=> {
       this.x = 0;
       this.width = 30;
       this.height = 70;
-
       this.y = GAME_SCREEN.height-45;
       this.mass = 60;
       this.ground = this.y;
@@ -73,6 +76,8 @@ window.addEventListener("load", ()=> {
         return;
       }
       this.x += this.speed*this.moveX;
+      GAME_BODY.scrollLeft = this.x-200
+      GAME_BODY.scrollTop = this.y-200
     }
     jump() {
       if (this.JumpX && this.y == this.ground) {
@@ -150,9 +155,16 @@ window.addEventListener("load", ()=> {
   function createPath(x, y, width) {
     ary.path.push(new Path(x, y, width));
   }
-  createPath(10, 1, 200);
-  createPath(200, 2, 150);
-  createPath(20,3,100)
+  createPath(1100,2,1600);
+
+  createPath(8000,1,150)
+  createPath(8160,2,200)
+  createPath(4000,1,300);
+  createPath(3700,2,290)
+  createPath(4010,3,2000)
+  createPath(5800,4,800)
+  createPath(5500,4,250)
+  createPath(2000,5,3450)
   function handlePath() {
     for (let i = 0; i < ary.path.length; i++) {
       const PATHS = ary.path[i];

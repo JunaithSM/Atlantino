@@ -4,18 +4,28 @@
   box-sizing: border-box;
   user-select: none;
   font-family: Arial;
+  overflow: hidden;
 }
 span{
   position: absolute;
   color: white;
 }
-#game{
-  position: absolute;
+#gamebody{
+ position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
+  overflow: hidden;
   background-image: linear-gradient(30deg,yellow,orange,red,darkred);
+}
+#game{
+  position: absolute;
+  width: 5000px;
+  height: 500px;
+  top: 0;
+  left: 0;
+  
 }
 /*control button*/
 .ctrlBtn{
@@ -45,7 +55,7 @@ span{
   left: 0;
   width: 100%;
   height: 100%;
- /* display: none;*/
+/* display: none;*/
 }
 
 #phone{
